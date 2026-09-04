@@ -59,7 +59,7 @@ const processResponse = (response) => {
 // If success -> returns { isSuccess: true, data: object }
 // If fail -> returns { isError: true, status: string, msg: string, code: int }
 //////////////////////////////
-const ProcessError = async (error) => {
+const ProcessError = (error) => {
     if (error.response) {
         // Request made and server responded with a status code 
         // that falls out of the range of 2xx

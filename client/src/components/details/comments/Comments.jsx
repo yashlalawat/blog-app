@@ -43,13 +43,19 @@ const Comments = ({ post }) => {
 
     useEffect(() => {
         const getData = async () => {
+            if (!post?._id) {
+                return;
+            }
+
             const response = await API.getAllComments(post._id);
+
             if (response.isSuccess) {
                 setComments(response.data);
             }
-        }
+        };
+
         getData();
-    }, [toggle, post]);
+    }, [toggle, post?._id]);
 
     const handleChange = (e) => {
         setComment({
