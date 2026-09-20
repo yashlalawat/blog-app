@@ -1,9 +1,5 @@
-
-import { AppBar, Toolbar, styled, Button } from '@mui/material'; 
-import { Link } from 'react-router-dom';
-
-import { useNavigate } from 'react-router-dom';
-
+import { AppBar, Toolbar, styled } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 const Component = styled(AppBar)`
     background: #FFFFFF;
@@ -12,29 +8,65 @@ const Component = styled(AppBar)`
 
 const Container = styled(Toolbar)`
     justify-content: center;
+
     & > a {
         padding: 20px;
         color: #000;
         text-decoration: none;
+        transition: 0.3s;
     }
-`
+
+    & > a.active {
+        color: #1976d2;
+        font-weight: bold;
+        border-bottom: 3px solid #1976d2;
+    }
+`;
 
 const Header = () => {
-
-    const navigate = useNavigate();
-
-    const logout = async () => navigate('/account');
-        
     return (
         <Component>
             <Container>
-                <Link to='/'>HOME</Link>
-                <Link to='/about'>ABOUT</Link>
-                <Link to='/contact'>CONTACT</Link>
-                <Link to='/account'>LOGOUT</Link>
+
+                <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }
+                >
+                    HOME
+                </NavLink>
+
+                <NavLink
+                    to="/about"
+                    className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }
+                >
+                    ABOUT
+                </NavLink>
+
+                <NavLink
+                    to="/contact"
+                    className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }
+                >
+                    CONTACT
+                </NavLink>
+
+                <NavLink
+                    to="/account"
+                    className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }
+                >
+                    LOGOUT
+                </NavLink>
+
             </Container>
         </Component>
-    )
-}
+    );
+};
 
 export default Header;

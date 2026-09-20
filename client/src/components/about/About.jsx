@@ -3,10 +3,10 @@ import { Box, styled, Typography, Link } from '@mui/material';
 import { GitHub, Instagram, Email } from '@mui/icons-material';
 
 const Banner = styled(Box)`
-    background-image: url(https://www.wallpapertip.com/wmimgs/23-236943_us-wallpaper-for-website.jpg);
+    background-image: url(https://emersonhc.com/wp-content/uploads/2018/07/People-watching-videos-on-a-computer.jpg);
     width: 100%;
     height: 50vh;
-    background-position: left 0px bottom 0px;
+    background-position: left 0px top -100px;
     background-size: cover;
 `;
 
